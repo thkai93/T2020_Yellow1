@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Yellow 1</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style = "text/css">
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+.header {
+    padding: 20px; /* some padding */
+    text-align: center; /* center the text */
+    background: #1abc9c; /* green background */
+    color: white; /* white text color */
+  }
+  
+  /* Increase the font size of the <h1> element */
+  .header h1 {
+    font-size: 40px;
+  }
+
+  /* Style the top navigation bar */
+.navbar {
+    overflow: hidden; /* Hide overflow */
+    background-color: #333; /* Dark background color */
+  }
+  
+  /* Style the navigation bar links */
+  .navbar a {
+    float: left; /* Make sure that the links stay side-by-side */
+    display: block; /* Change the display to block, for responsive reasons (see below) */
+    color: white; /* White text color */
+    text-align: center; /* Center the text */
+    padding: 14px 20px; /* Add some padding */
+    text-decoration: none; /* Remove underline */
+  }
+  
+  /* Right-aligned link */
+  .navbar a.right {
+    float: right; /* Float a link to the right */
+  }
+  
+  /* Change color on hover/mouse-over */
+  .navbar a:hover {
+    background-color: #ddd; /* Grey background color */
+    color: black; /* Black text color */
+  }
+
+  /* Ensure proper sizing */
+* {
+    box-sizing: border-box;
+  }
+  
+  /* Column container */
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  /* Create two unequal columns that sits next to each other */
+  /* Sidebar/left column */
+  .side {
+    flex: 30%; /* Set the width of the sidebar */
+    background-color: #f1f1f1; /* Grey background color */
+    padding: 20px; /* Some padding */
+  }
+  
+  /* Main column */
+  .main {
+    flex: 70%; /* Set the width of the main content */
+    background-color: white; /* White background color */
+    padding: 20px; /* Some padding */
+  }
+  /* Responsive layout - when the screen is less than 700px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 700px) {
+    .row {
+      flex-direction: column;
+    }
+  }
+  
+  /* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
+  @media screen and (max-width: 400px) {
+    .navbar a {
+      float: none;
+      width: 100%;
+    }
+  }
+  .footer {
+    padding: 20px; /* Some padding */
+    text-align: center; /* Center text*/
+    background: #ddd; /* Grey background */
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>Current Balance: $50,000</h1>
+  <h2>You are spending within budget </h2>
+</div>
+
+<div class="navbar">
+
+  <a href="All Transaction Type">Transaction Details</a>
+  <a href="Advice.html">Advice</a>
+</div>
+
+<div class="row">
+  <div class="side">
+  <h1>Acount Type</h1>
+  <p><a href="Saving_Account.html"><b>Saving Account</b></a></p>
+  <p><a href="Credit_Account.html"><b>Credit Account</b></a></p>
+
+  </div>
+
+  <div class="main">
+     <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+    <script>
+    var pausecontent =[['Month', 'Spending']];            
+    var dataObj=[{"January":300,
+                  "February":350,
+                  "March":600,
+                  "April":200}]; 
+          
+      
+       for(var k in dataObj[0])
+       {
+        pausecontent.push([k,dataObj[0][k].toString()]);
+       }  
+        google.charts.load("current", {packages:["corechart"]});
+        google.charts.setOnLoadCallback(drawChart);
+        function drawChart() {
+            var data = google.visualization.arrayToDataTable(pausecontent);               
+
+            var options = {
+            title: 'Monthly Expenditure',
+            legend: { position: 'none' }
+        };
+
+        var chart = new google.visualization.Histogram(document.getElementById('chart_div'));
+        chart.draw(data,options);
+      }
+            
+            
+        </script>
+    </head>
+    <body>
+   <div id="chart_div" style="width: 900px; height: 500px;"></div>
+
+  </body>
+  </div>
+  <div class="section">
+  <p>Budget Set: $10,000</p>
+
+  <p>Set amount of budget</p>
+  </div>
+</div>
+</body>
+</html>
